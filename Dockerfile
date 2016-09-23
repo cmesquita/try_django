@@ -4,7 +4,7 @@
 ############################################################
 
 # Set the base image to use to Ubuntu
-FROM centos
+FROM cmesquita00/hello_django
 
 # Set the file maintainer (your name - the file's author)
 MAINTAINER cesar mesquita
@@ -17,10 +17,6 @@ ENV DOCKYARD_SRVHOME=/srv
 # Directory in container for project source files
 ENV DOCKYARD_SRVPROJ=/srv/hello_django
 
-# Update the default application repository sources list
-RUN yum -y update 
-RUN yum install -y python python-pip
-
 # Create application subdirectories
 WORKDIR $DOCKYARD_SRVHOME
 RUN mkdir media static logs
@@ -28,9 +24,6 @@ VOLUME ["$DOCKYARD_SRVHOME/media/", "$DOCKYARD_SRVHOME/logs/"]
 
 # Copy application source code to SRCDIR
 COPY $DOCKYARD_SRC $DOCKYARD_SRVPROJ
-
-# Install Python dependencies
-RUN pip install -r $DOCKYARD_SRVPROJ/requirements.txt
 
 # Port to expose
 EXPOSE 8000
