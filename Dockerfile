@@ -19,7 +19,6 @@ ENV DOCKYARD_SRVPROJ=/srv/hello_django
 
 # Create application subdirectories
 WORKDIR $DOCKYARD_SRVHOME
-RUN mkdir media static logs
 VOLUME ["$DOCKYARD_SRVHOME/media/", "$DOCKYARD_SRVHOME/logs/"]
 
 # Copy application source code to SRCDIR
