@@ -4,7 +4,7 @@
 ############################################################
 
 # Set the base image to use to Ubuntu
-FROM centos7
+FROM centos
 
 # Set the file maintainer (your name - the file's author)
 MAINTAINER cesar mesquita
